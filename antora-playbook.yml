@@ -3,7 +3,7 @@ site:
   start_page: demo::index.adoc
 content:
   sources:
-    - url: https://gitlab.com/antora/demo/demo-component-a.git
+    - url: https://github.com/taseroth/antora-demo-api.git
       branches: HEAD
     - url: https://gitlab.com/antora/demo/demo-component-b.git
       branches: [v2.0, v1.0]
