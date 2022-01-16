@@ -3,6 +3,8 @@ site:
   start_page: demo::index.adoc
 content:
   sources:
+    - url: ./
+      start_path: docs
     - url: https://github.com/taseroth/antora-demo-api.git
       branches: HEAD
       start_path: docs
@@ -13,3 +15,10 @@ ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
     snapshot: true
+asciidoc:
+  attributes:
+    sectanchors: true
+    plantuml-server-url: https://www.plantuml.com/plantuml
+    plantuml-fetch-diagram: true
+  extensions:
+    - asciidoctor-plantuml
