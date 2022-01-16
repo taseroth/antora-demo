@@ -5,8 +5,9 @@ content:
   sources:
     - url: https://github.com/taseroth/antora-demo-api.git
       branches: HEAD
-    - url: https://gitlab.com/antora/demo/demo-component-b.git
-      branches: [v2.0, v1.0]
+      start_path: docs
+    - url: https://github.com/taseroth/antora-demo-extension.git
+      branches: HEAD
       start_path: docs
 ui:
   bundle:
