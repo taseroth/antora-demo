@@ -1,0 +1,6 @@
+name: demo
+title: Demo appilcation
+version: dev
+start_page: ROOT:inline-text-formatting.adoc
+nav:
+  - modules/ROOT/nav.adoc
