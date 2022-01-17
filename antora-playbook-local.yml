@@ -5,10 +5,10 @@ content:
   sources:
     - url: ./
       start_path: docs
-    - url: https://github.com/taseroth/antora-demo-api.git
+    - url: ../demo-api
       branches: main
       start_path: docs
-    - url: https://github.com/taseroth/antora-demo-extension.git
+    - url: ../demo-neo4j-extension
       branches: main
       start_path: docs
 ui:

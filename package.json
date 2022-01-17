@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@antora/cli": "3.0.0",
-    "@antora/site-generator": "3.0.0"
+    "@antora/site-generator": "3.0.0",
+    "asciidoctor-plantuml": "^1.1.13"
   }
 }
