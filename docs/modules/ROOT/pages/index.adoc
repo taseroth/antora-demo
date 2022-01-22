@@ -1,2 +1,23 @@
-= Welcome to Project 'Demo'
+= Welcome to Project <Demo>
 
+This is an example project software (architecture) documentation for project setups that I often encounter at my customers.
+
+The aim is to set up a documentation structure for re-use. It follows the doc-as-code paradigm and is based on https://arc42.org[Arc42] templates, uses https://asciidoctor.org[Acsiidoc] to write the documentation in and https://plantuml[PlantUML] to render images.
+
+As a consultant for https://neorj.com[Neo4j] these projects are centered around a graph database, and I will adjust the Arc42 templates to the needs of those projects.
+
+The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation.
+
+Those solutions typically consist of a few building blocks (see xref:03_system_scope_and_context.adoc[]) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent https://github.com/docToolchain/docToolchain[docToolchain], combining them together requires a different approach.
+
+https://antora.org[Antora] provides exactly this feature in allowing to provide multiple git repositories as source and combining the output into a single document.
+
+This repository provides the configuration via the `antora-playbook.yml` configuration file as well as hosting the documentation that is common for all subproject (architecture overview, ADRs, stakeholders,...)
+
+== Usage
+* Make sure you have a current LTS version of Node installed
+* https://docs.antora.org/antora/latest/install/install-antora/[Install] Antora,
+* Clone this repository: `git clone https://github.com/taseroth/antora-demo.git`
+* run: `npx antora antora-playbook.yml` .
+
+There is also an Antora playbook for local usage to test changes without committing them first. You can run `npx antora antora-playbook-local.yml` to use the files checkout locally.

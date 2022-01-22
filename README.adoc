@@ -1,0 +1,4 @@
+Demo Setup for multi-project software documentation using Antora.
+See xref:docs/modules/ROOT/pages/index.adoc[]
+
+
