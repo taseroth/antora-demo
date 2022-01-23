@@ -61,46 +61,55 @@
     <a class="nav-link" href="index.html">Welcome</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="01_introduction_and_goals.html">1. Introduction and Goals</a>
+    <a class="nav-link" href="01_introduction_and_goals.html">Introduction and Goals</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="02_architecture_constraints.html">2. Architecture Constraints</a>
+    <a class="nav-link" href="02_architecture_constraints.html">Architecture Constraints</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="03_system_scope_and_context.html">3. System Scope and Context</a>
+    <a class="nav-link" href="03_system_scope_and_context.html">System Scope and Context</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="04_solution_strategy.html">4. Solution Strategy</a>
+    <a class="nav-link" href="04_solution_strategy.html">Solution Strategy</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="05_building_block_view.html">5. Building Block View</a>
+    <a class="nav-link" href="05_building_block_view.html">Building Block View</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="06_runtime_view.html">6. Runtime View</a>
+    <a class="nav-link" href="06_runtime_view.html">Runtime View</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="07_deployment_view.html">7. Deployment View</a>
+    <a class="nav-link" href="07_deployment_view.html">Deployment View</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="09_design_decisions.html">9. Design Decisions</a>
+    <a class="nav-link" href="13_physical_data_model.html">Physical Datamodel</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="10_quality_scenarios.html">10. Quality Requirements</a>
+    <a class="nav-link" href="10_quality_scenarios.html">Quality Requirements</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="11_technical_risks.html">11. Risks and Technical Debts</a>
+    <a class="nav-link" href="11_technical_risks.html">Risks and Technical Debts</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="12_glossary.html">Glossary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
     <button class="nav-item-toggle"></button>
-    <span class="nav-text">11. Architecture Decisions</span>
+    <span class="nav-text">Architecture Decisions</span>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="adrs/00-template.html">Template</a>
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">REST API</span>
+<ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="12_glossary.html">12. Glossary</a>
+    <a class="nav-link" href="../../rest-api/current/index.html">Overview</a>
   </li>
 </ul>
   </li>
@@ -172,13 +181,21 @@
 <p>As a consultant for <a href="https://neorj.com">Neo4j</a> these projects are centered around a graph database, and I will adjust the Arc42 templates to the needs of those projects.</p>
 </div>
 <div class="paragraph">
-<p>The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation.</p>
+<p>The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation. The recommended architecture documentation is hopefully unspecific enough to be applied to similar projects.</p>
 </div>
 <div class="paragraph">
-<p>Those solutions typically consist of a few building blocks (see <a href="03_system_scope_and_context.html" class="xref page">03_system_scope_and_context.adoc</a>) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent <a href="https://github.com/docToolchain/docToolchain">docToolchain</a>, combining them together requires a different approach.</p>
+<p>Those solutions typically consist of a few building blocks (see <a href="03_system_scope_and_context.html" class="xref page">System Scope and Context</a>) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent <a href="https://github.com/docToolchain/docToolchain">docToolchain</a>, combining them together requires a different approach.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://antora.org">Antora</a> provides exactly this feature in allowing to provide multiple git repositories as source and combining the output into a single document.</p>
+<p>The outlined approach allows to build a documentation for the project as a whole, but allows keeping the subproject specific documentation artefacts close to the sources that build the subprojects. The following diagram pictures this.</p>
+</div>
+<div class="imageblock plantuml">
+<div class="content">
+<img src="_images/9bc8eab0614005778a10e4da6b5faaf5cae1a283.png" alt="diagram">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://antora.org">Antora</a> provides exactly this feature in allowing to provide multiple git repositories as source and combining the output into a single document/side.</p>
 </div>
 <div class="paragraph">
 <p>This repository provides the configuration via the <code>antora-playbook.yml</code> configuration file as well as hosting the documentation that is common for all subproject (architecture overview, ADRs, stakeholders,&#8230;&#8203;)</p>
@@ -186,7 +203,15 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_usage"><a class="anchor" href="#_usage"></a><a class="link" href="#_usage">1. Usage</a></h2>
+<h2 id="_changes"><a class="anchor" href="#_changes"></a><a class="link" href="#_changes">1. Changes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I wanted the main navigation on left side to include all navigation entries from the subprojects. Antora looks for <code>&lt;module&gt;/nav.adoc</code> files for this. But these navigation files can not be included (they are not in the context), for this, each module contains <code>&lt;module&gt;/pages/_partials/nav.adoc</code> that contains the menu entries for that module and that can be included. The Antora <code>&lt;module&gt;/nav.adoc</code> file then jus includes this file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a><a class="link" href="#_usage">2. Usage</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
