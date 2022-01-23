@@ -6,13 +6,58 @@ The aim is to set up a documentation structure for re-use. It follows the doc-as
 
 As a consultant for https://neorj.com[Neo4j] these projects are centered around a graph database, and I will adjust the Arc42 templates to the needs of those projects.
 
-The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation.
+The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation. The recommended architecture documentation is hopefully unspecific enough to be applied to similar projects.
 
 Those solutions typically consist of a few building blocks (see xref:03_system_scope_and_context.adoc[]) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent https://github.com/docToolchain/docToolchain[docToolchain], combining them together requires a different approach.
 
-https://antora.org[Antora] provides exactly this feature in allowing to provide multiple git repositories as source and combining the output into a single document.
+The outlined approach allows to build a documentation for the project as a whole, but allows keeping the subproject specific documentation artefacts close to the sources that build the subprojects. The following diagram pictures this.
+
+[plantuml]
+----
+folder main [
+<b>Main
+documentation entry point
+contains the antora playbook
+]
+
+folder rest [
+<b>rest-api
+rest api src
+and ducumentation
+]
+
+
+folder extension [
+<b>neo4j-extension
+extension src
+and ducumentation
+]
+
+folder frontend [
+<b>frontend
+frontend src
+and ducumentation
+]
+
+folder etl [
+<b>etl
+etl src
+and ducumentation
+]
+
+main -- rest
+main -- extension
+main -- frontend
+main -- etl
+----
+
+
+https://antora.org[Antora] provides exactly this feature in allowing to provide multiple git repositories as source and combining the output into a single document/side.
 
 This repository provides the configuration via the `antora-playbook.yml` configuration file as well as hosting the documentation that is common for all subproject (architecture overview, ADRs, stakeholders,...)
+
+== Changes
+I wanted the main navigation on left side to include all navigation entries from the subprojects. Antora looks for `<module>/nav.adoc` files for this. But these navigation files can not be included (they are not in the context), for this, each module contains `<module>/pages/_partials/nav.adoc` that contains the menu entries for that module and that can be included. The Antora `<module>/nav.adoc` file then jus includes this file.
 
 == Usage
 * Make sure you have a current LTS version of Node installed

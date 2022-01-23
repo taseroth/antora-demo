@@ -1,4 +1,4 @@
-== Solution Strategy
+= Solution Strategy
 
 
 [role="arc42help"]

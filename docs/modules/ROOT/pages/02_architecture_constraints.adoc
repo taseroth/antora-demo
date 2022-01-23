@@ -1,4 +1,4 @@
-== Architecture Constraints
+= Architecture Constraints
 
 
 [role="arc42help"]

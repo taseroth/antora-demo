@@ -1,2 +1,2 @@
-* 11. Architecture Decisions
-** xref:demo:adrs:00-template.adoc[Template]
+.Architecture Decisions
+** xref:adrs:00-template.adoc[Template]
