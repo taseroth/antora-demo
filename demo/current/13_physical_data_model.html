@@ -169,7 +169,53 @@
 </aside>
 <article class="doc">
 <h1 class="page">Physical Datamodel</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the datamodel as it exists in the database, this can differ from the logical datamodel the application is using in the service layer.
+This section assumes the data is stored in a Neo4j database and hence uses the property graph model.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are currently no known ways to generate a graphical representation of a graph property model via plantuml or similar available tooling, so the image is generated in the Neo4j browser with <code>call db.schema.visualization</code> and manually downloaded.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">1. Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For demo purposes, the datamodel from the <a href="https://github.com/taseroth/twitter-crawler">Twitter-Crawler</a>. This application allows to crawl the social graph from a given starting point and stores the result in a Neo4j database.
+Entities in this graph represent part of the Twitter social network.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/13-twittergraph.svg" alt="Graphical representation of the used datamodel"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nodes"><a class="anchor" href="#_nodes"></a><a class="link" href="#_nodes">2. Nodes</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_user"><a class="anchor" href="#_user"></a><a class="link" href="#_user">2.1. User</a></h3>
 
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relationships"><a class="anchor" href="#_relationships"></a><a class="link" href="#_relationships">3. Relationships</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
 </article>
   </div>
 </main>
