@@ -8,7 +8,7 @@
 * xref:06_runtime_view.adoc[]
 * xref:07_deployment_view.adoc[]
 * xref:13_physical_data_model.adoc[]
-//* xref:09_design_decisions.adoc[]
+
 * xref:10_quality_scenarios.adoc[]
 * xref:11_technical_risks.adoc[]
 * xref:12_glossary.adoc[]

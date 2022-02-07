@@ -2,13 +2,13 @@
 
 This is an example project software (architecture) documentation for project setups that I often encounter at my customers.
 
-The aim is to set up a documentation structure for re-use. It follows the doc-as-code paradigm and is based on https://arc42.org[Arc42] templates, uses https://asciidoctor.org[Acsiidoc] to write the documentation in and https://plantuml[PlantUML] to render images.
+The aim is to set up a documentation structure for re-use. It follows the doc-as-code paradigm and is based on https://arc42.org[Arc42] templates, uses https://asciidoctor.org[Acsiidoc] to write the documentation and https://plantuml[PlantUML] to render images.
 
 As a consultant for https://neorj.com[Neo4j] these projects are centered around a graph database, and I will adjust the Arc42 templates to the needs of those projects.
 
 The example application is for a 'Bill Of Materials' use-case, but no actual software artefacts are included as this is all about documentation. The recommended architecture documentation is hopefully unspecific enough to be applied to similar projects.
 
-Those solutions typically consist of a few building blocks (see xref:03_system_scope_and_context.adoc[]) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent https://github.com/docToolchain/docToolchain[docToolchain], combining them together requires a different approach.
+Solutions typically consist of a few building blocks (see xref:03_system_scope_and_context.adoc[]) that each live in their own git repository. While it is possible to document each such (sub)project using tools such as the excellent https://github.com/docToolchain/docToolchain[docToolchain], combining them together requires a different approach.
 
 The outlined approach allows to build a documentation for the project as a whole, but allows keeping the subproject specific documentation artefacts close to the sources that build the subprojects. The following diagram pictures this.
 

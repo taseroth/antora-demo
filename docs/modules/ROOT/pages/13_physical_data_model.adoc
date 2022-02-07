@@ -1,1 +1,20 @@
 = Physical Datamodel
+
+This section describes the datamodel as it exists in the database, this can differ from the logical datamodel the application is using in the service layer.
+This section assumes the data is stored in a Neo4j database and hence uses the property graph model.
+
+NOTE: There are currently no known ways to generate a graphical representation of a graph property model via plantuml or similar available tooling, so the image is generated in the Neo4j browser with `call db.schema.visualization` and manually downloaded.
+
+== Overview
+
+For demo purposes, the datamodel from the https://github.com/taseroth/twitter-crawler[Twitter-Crawler]. This application allows to crawl the social graph from a given starting point and stores the result in a Neo4j database.
+Entities in this graph represent part of the Twitter social network.
+
+image:13-twittergraph.svg["Graphical representation of the used datamodel"]
+
+== Nodes
+
+=== User
+
+
+== Relationships
