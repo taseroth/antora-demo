@@ -8,6 +8,8 @@ For the data sources used, see [data sources] TODO.
 
 Users will need to get authorization from the company SSO system before using the application. See [roles and rights] TODO
 
+The system context diagram describes how the systems fits in the wider IT landscape and what other surrounding systems it interacts with.
+.System Context Diagram of the Demo application
 [plantuml]
 ----
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
@@ -32,3 +34,36 @@ Rel_R(application, sso, "Verifies User access")
 Rel_L(application, datalake, "monthly dataload of sold products and transactions")
 ----
 
+.Container Diagram of the Demo application
+[plantuml]
+----
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/users.puml
+!include FONTAWESOME/file_csv.puml
+!include FONTAWESOME/sign_in_alt.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Container context diagram for Demo Application
+
+Person(user, "User","Employee, with rights to use the application", $sprite="users")
+System_Ext(datalake, "Datalake", "Software System",$sprite="file_csv")
+System_Ext(sso, "SSO", "Company wide SingleSignOn solution", $sprite="sign_in_alt")
+System_Boundary(c1, "Sample System") {
+    Container(web_api, "REST API", "Spring boot", "Provides access to the application data")
+    Container(web_app, "Web application", "Angular2", "Allows user to query data")
+    Container(etl, "ETL", "Apache Kettle", "loads data from datalake into Neo4j")
+    ContainerDb(neo4j, "Neo4j Graph Database ", "Neo4j", "stores data and provides access via Cypher")
+}
+
+Rel(user, web_app, "Reviews aggrated cost for products")
+Rel_L(web_api, sso, "Verifies User access")
+Rel(etl, datalake, "monthly dataload of sold products and transactions")
+Rel(web_app, web_api, "requests data")
+Rel(web_api, neo4j, "reads / write data")
+Rel(etl, neo4j, "writes data to neo4j")
+@enduml
+----

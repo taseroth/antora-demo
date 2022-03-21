@@ -3,7 +3,7 @@
 This section describes the datamodel as it exists in the database, this can differ from the logical datamodel the application is using in the service layer.
 This section assumes the data is stored in a Neo4j database and hence uses the property graph model.
 
-NOTE: There are currently no known ways to generate a graphical representation of a graph property model via plantuml or similar available tooling, so the image is generated in the Neo4j browser with `call db.schema.visualization` and manually downloaded.
+NOTE: There are currently no known ways to generate a graphical representation of a graph property model via plantuml or similar available tooling, so the image is generated in the Neo4j browser with `call db.schema.visualization` and manually downloaded. Other ways of visualising the data model is by using tools as https://arrows.app[Arrows app] or https://www.yworks.com/editors[yEd]. It is recommended to store the source files from these tools to allow adjustments for the data model.
 
 == Overview
 
@@ -14,7 +14,108 @@ image:13-twittergraph.svg["Graphical representation of the used datamodel"]
 
 == Nodes
 
+[role="arc42help"]
+****
+Describes the role a node/label has in the model and how it relates to concepts in the domain.
+
+* list all attributes with their data types, describing their usage and typical content
+* depending on the use case, name the source of the data
+* list the constraints and index for the label
+****
+
 === User
 
+Nodes with the label `User` represent accounts of users of the twitter service. User can post tweets, follow other users to see updates of their tweets and respond to tweets.
+
+.Attributes of User nodes
+[%header,cols="2,2,6,^1,^1"]
+|===
+| Attribute name | Data Format | Description | Unique | Index
+
+| id
+| String
+| twitters internal id
+| X
+| X
+
+| screenName
+| String
+| unmodifiable twitter id (the part behind the @)
+|
+| X
+
+| name
+| String
+| Display name
+|
+|
+
+| description
+| String
+| user provided description from their profile
+|
+| X
+
+| lastScanned
+| LocalDateTime
+| time the user data was last updated by the crawler
+|
+|
+
+| createdAt
+| LocalDateTime
+| time the user was first encountered and created in the database
+|
+|
+
+| location
+| String
+| location string as provided by the user in their profile
+|
+|
+
+| verified
+| Boolean
+| If the user identity has been verified by Twitter
+|
+|
+
+| tweetCount
+| Number
+| Number of tweets as reported by Twitter. This might differ from the number of connected :Tweet nodes as Twitter limits the number of loadable tweets
+|
+|
+
+| weight
+| Float
+| as calculated by GDS page rank algorithm
+|
+|
+|===
 
 == Relationships
+
+[role="arc42help"]
+****
+Describes the role the relationship has in the model and how it relates to concepts in the domain.
+
+* list all attributes with their data types, describing their usage and typical content
+* depending on the use case, name the source of the data
+* List possible source and destination nodes and cardinalities
+****
+
+=== FOLLOWS
+
+Describes that a User choose to receive updates (tweets) of another User.
+
+.Attributes of FOLLOWS relationship
+[%header,cols="2,2,6,^1,^1"]
+|===
+| Attribute name | Data Format | Description | Unique | Index
+
+| interactions
+| Number
+| Number of times the source user interacted with the destination user. Calculated as part of the DS pipeline
+|
+|
+|===
